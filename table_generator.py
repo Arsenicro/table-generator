@@ -95,7 +95,7 @@ if __name__ == "__main__":
     for sheet_name in SHEETS:
         markdown = generate_markdown_table(file_path, sheet_name)
         if markdown:
-            output_file = f"{sheet_name}.txt"
+            output_file = f"{sheet_name}_table.txt"
             with open(output_file, "w", encoding="utf-8") as f:
                 f.write(markdown)
             print(f"Saved: {output_file}")
