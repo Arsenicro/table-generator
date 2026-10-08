@@ -1,0 +1,39 @@
+# Seminar table / schedule generator configuration
+# Paths are relative to the project root (this file's directory).
+
+input_file: input/Zima 26 Seminarka.xlsx
+output_dir: output
+
+# Enable only the seminars you run this year.
+# Each seminar expects sheets: "<name>", "<name>-daty", "<name>-tematy"
+seminars:
+  - name: Narzędzia
+    enabled: true
+  - name: Agile
+    enabled: false
+
+# Weekly open-lecture schedule
+schedule:
+  # First meeting date (ISO). Empty weeks until end_date are listed too.
+  start_date: "2026-10-12"
+  end_date: "2027-02-01"
+  week_interval_days: 7
+
+# Column indexes are 0-based (A=0, B=1, ...)
+columns:
+  student_sheet:
+    name: 0
+    surname: 1
+    index: 2
+    email: 3
+    english: 5
+  lookup_sheets:
+    email: 2
+    # Narzędzia-daty: real dates in column F (E may still hold Polish text)
+    dates_value: 5
+    # Narzędzia-tematy: titles in column E
+    titles_value: 4
+
+suffixes:
+  dates: "-daty"
+  titles: "-tematy"
